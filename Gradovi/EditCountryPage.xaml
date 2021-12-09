@@ -1,0 +1,45 @@
+﻿<local:FramedPage x:Class="Gradovi.EditCountryPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Gradovi"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="EditCountryPage">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/gradient.png"/>
+        </Grid.Background>
+        <Label x:Name="lbCountryName" Content="Country Name:" HorizontalAlignment="Left" Margin="93,88,0,0" VerticalAlignment="Top"/>
+
+        <Border 
+            x:Name="PictureBorder"
+            BorderBrush="WhiteSmoke" 
+            BorderThickness="0.3"  
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top" Margin="0,79,48,0">
+
+
+
+            <Image
+                x:Name="Picture" 
+                Stretch="Uniform"
+                Width="198"
+                Height="252"
+                Source="{Binding Image}" 
+               />
+        </Border>
+        <TextBox x:Name="tbCountryName" HorizontalAlignment="Left" Height="23" Margin="188,91,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="232"/>
+        <Button x:Name="btCommit" Content="Commit" Background="#12342C" Foreground="White" HorizontalAlignment="Left" Margin="93,360,0,0" VerticalAlignment="Top" Width="90" Click="btCommit_Click"/>
+        <Button x:Name="btImage" Content="UplaodImage" Background="DarkOrange" Foreground="White" HorizontalAlignment="Left" Margin="264,360,0,0" VerticalAlignment="Top" Width="95" Click="btImage_Click"/>
+        <Label x:Name="lbError1" Content="" HorizontalAlignment="Left" Margin="132,260,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btBack" Content="" Foreground="Transparent" Click="btBack_Click"  HorizontalAlignment="Left" Margin="40,41,0,0" VerticalAlignment="Top" Width="25" Height="25">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/back.png"/>
+            </Button.Background>
+        </Button>
+
+    </Grid>
+</local:FramedPage>

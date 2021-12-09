@@ -1,0 +1,126 @@
+﻿<local:FramedPage x:Class="Gradovi.ListComboPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Gradovi"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ListComboPage">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="gradient.png"/>
+        </Grid.Background>
+        <ListView x:Name="lvCountry" HorizontalAlignment="Left" Height="294" Margin="34,34,0,0" VerticalAlignment="Top" Width="352">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <EventSetter Event="MouseDoubleClick" Handler="BtnEdit_Click"/>
+                    <Setter Property="Background" Value="LightBlue"/>
+                    <Style.Triggers>
+                        <Trigger Property="ListView.AlternationIndex" Value="1">
+                            <Setter Property="Background" Value="White"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsSelected" Value="true" />
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Background" Value="CadetBlue" />
+                        </MultiTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="147" Header="Ime Drzave">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ImeDrzave}" TextDecorations="Underline" Foreground="Black" Cursor="Hand">
+                                    <TextBlock.ToolTip>
+                                    <Image x:Name="Picture" Source="{Binding Image}" Width="60" Height="60" Margin="0,0,5,0" />
+                                    </TextBlock.ToolTip>
+                                </TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Width="170" Header="Drzava ID" DisplayMemberBinding="{Binding IDCountry}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView x:Name="lvCity" HorizontalAlignment="Left" Height="294" Margin="417,34,0,0" VerticalAlignment="Top" Width="352">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <EventSetter Event="MouseDoubleClick" Handler="BtnEdit_Click"/>
+                    <Setter Property="Background" Value="LightBlue"/>
+                    <Style.Triggers>
+                        <Trigger Property="ListView.AlternationIndex" Value="1">
+                            <Setter Property="Background" Value="White"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsSelected" Value="true" />
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Background" Value="CadetBlue" />
+                        </MultiTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="173" Header="Ime Grada" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ImeGrada}" TextDecorations="Underline" Foreground="Black" Cursor="Hand">
+                                    <TextBlock.ToolTip>
+                                        <Image x:Name="Picture" Source="{Binding Image}" Width="60" Height="60" Margin="0,0,5,0" />
+                                    </TextBlock.ToolTip>
+                                </TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Width="170" Header="ID Drzave" DisplayMemberBinding="{Binding CountryID}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Button 
+            x:Name="BtnEdit"
+            Content="Edit" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top" 
+            Width="75" 
+            Foreground="WhiteSmoke"
+            Background="#13242C"            
+            Click="BtnEdit_Click" RenderTransformOrigin="1.101,3.807" Margin="311,363,0,0"/>
+
+        <Button 
+            x:Name="BtnDelete"
+            Content="Delete" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top" 
+            Width="75" 
+            Foreground="WhiteSmoke"
+            Background="#FFD41B43"            
+            Click="BtnDelete_Click" RenderTransformOrigin="1.101,3.807" Margin="417,363,0,0"/>
+
+        <Button 
+            x:Name="BtnAddCountry"
+            Content="Add Country" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top" 
+            Width="75" 
+            Foreground="WhiteSmoke"
+            Background="#FF246844"            
+            Click="BtnAddCountry_Click" RenderTransformOrigin="1.101,3.807" Margin="34,363,0,0"/>
+        <Button 
+            x:Name="BtnAddCity"
+            Content="Add City" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top" 
+            Width="75" 
+            Foreground="WhiteSmoke"
+            Background="#FF246844"            
+            Click="BtnAddCity_Click" RenderTransformOrigin="1.101,3.807" Margin="694,363,0,0"/>
+
+    </Grid>
+</local:FramedPage>
